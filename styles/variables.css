@@ -1,0 +1,11 @@
+    :root {
+    --orange : hsl(26, 100%, 55%);
+    --pOrange : hsl(25, 100%, 94%);
+    --vDBlue : hsl(220, 13%, 13%);
+    --dGBlue : hsl(219, 9%, 45%);
+    --gBlue : hsl(220, 14%, 75%);
+    --blue : hsl(223, 64%, 98%);
+    --white : hsl(0, 0%, 100%);
+    --black : hsl(0, 0%, 0%); /* 75% opacity for lightbox background */
+    --fontSize : 16px;
+    }
