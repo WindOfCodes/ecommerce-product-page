@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <title>ecommerce-product-page</title>
+  </head>
+  <body>
+    <nav>
+      <button class="hamburger">
+        <span class="hamburger_box">
+          <span class="hamburger_inner"></span>
+        </span>
+      </button>
+      <h1>sneakers</h1>
+      <div class="navigation">
+        <ul>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="basket"><img src="/images/icon-cart.svg" />
+        <span class="inBasket"></span>
+      </div>
+      <div class="cartBox">
+        <h3>Cart</h3>
+        <section class="CartContentEmpty">
+          Your cart is empty.
+        </section>
+        <button class="checkoutBtn">Checkout</button> 
+      </div>
+      <div class="user_pic"><img src="/images/image-avatar.png" /></div>
+    </nav>
+    <section class="bigBox">
+      <div class="photo_area">
+        <div class="photo_big p_b">
+          <button class="arrow_btn prev_btn">
+            <span class="arrow_span prev_span"></span>
+          </button>
+          <img class="photoBig" src="./images/image-product-1.jpg" />
+          <button class="arrow_btn next_btn">
+            <span class="arrow_span next_span"></span>
+          </button>
+        </div>
+        <div class="photo_few">
+          <div class="photo_small borderActive">
+            <img
+              class="photoImg photo1 opacityActive"
+              src="/images/image-product-1-thumbnail.jpg"
+            />
+          </div>
+          <div class="photo_small">
+            <img
+              class="photoImg photo2"
+              src="/images/image-product-2-thumbnail.jpg"
+            />
+          </div>
+          <div class="photo_small">
+            <img
+              class="photoImg photo3"
+              src="/images/image-product-3-thumbnail.jpg"
+            />
+          </div>
+          <div class="photo_small">
+            <img
+              class="photoImg photo4"
+              src="/images/image-product-4-thumbnail.jpg"
+            />
+          </div>
+        </div>
+      </div>
+      <section class="product_area">
+        <p class="company">sneakers company</p>
+        <h1 class="productName">Fall Limited Edition Sneakers</h1>
+        <p class="description">
+          Thes low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
+        <section class="price_area">
+          <p class="price">$125.00</p>
+          <p class="discount">50%</p>
+          <p class="old_price">$250.00</p>
+        </section>
+        <section class="btns_area">
+          <div class="quantity">
+            <button class="minus"><img src="/images/icon-minus.svg" /></button>
+            <div class="number">0</div>
+            <button class="plus"><img src="/images/icon-plus.svg" /></button>
+          </div>
+          <button class="add_btn">
+            <img src="/images/icon-cart.svg" />Add to cart
+          </button>
+        </section>
+      </section>
+    </section>
+
+    <section class="modal_section">
+      <div class="photo_area p_a_modal">
+        <button class="modal_close">
+          <span class="close_span"></span>
+        </button>
+        <div class="photo_big p_b_modal">
+          <button class="arrow_btn prev_btn">
+            <span class="arrow_span prev_span"></span>
+          </button>
+          <img class="photoBig b_p_modal"/>
+          <button class="arrow_btn next_btn">
+            <span class="arrow_span next_span"></span>
+          </button>
+        </div>
+        <div class="photo_few p_f_modal">
+          <div class="photo_small photo_small_modal borderActive">
+            <img
+              class="photoImg photo1 p1m photoImgModal opacityActive"
+              src="/images/image-product-1-thumbnail.jpg"
+            />
+          </div>
+          <div class="photo_small photo_small_modal">
+            <img
+              class="photoImg photo2 p2m photoImgModal"
+              src="/images/image-product-2-thumbnail.jpg"
+            />
+          </div>
+          <div class="photo_small photo_small_modal">
+            <img
+              class="photoImg photo3 p3m photoImgModal"
+              src="/images/image-product-3-thumbnail.jpg"
+            />
+          </div>
+          <div class="photo_small photo_small_modal">
+            <img
+              class="photoImg photo4 p4m"
+              src="/images/image-product-4-thumbnail.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="./script/main.js"></script>
+</html>

@@ -1,0 +1,632 @@
+@import "./variables.css";
+@import "./media.css";
+
+@keyframes contrastUp {
+  from {
+    filter: contrast(1);
+  }
+  to {
+    filter: contrast(30);
+  }
+}
+
+@keyframes contrastLow {
+  from {
+    filter: contrast(1);
+  }
+  to {
+    filter: contrast(0.5);
+  }
+}
+
+@keyframes opacityChange {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 75%;
+  }
+}
+
+@keyframes opacityPhoto {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 25%;
+  }
+}
+
+@keyframes lineBottom {
+  from {
+    border-bottom: 4px solid transparent;
+  }
+  to {
+    border-bottom: 4px solid var(--orange);
+  }
+}
+
+@keyframes userPicBorder {
+  from {
+    border: 2px solid transparent;
+  }
+  to {
+    border: 2px solid var(--orange);
+  }
+}
+
+@keyframes whiteToOrange {
+  from {
+    background-color: var(--white);
+  }
+  to {
+    background-color: var(--orange);
+  }
+}
+
+@keyframes blackToOrange {
+  from {
+    background-color: var(--black);
+  }
+  to {
+    background-color: var(--orange);
+  }
+}
+
+* {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+body {
+  width: 75%;
+  max-width: 75%;
+  margin: auto;
+  font-size: var(--fontSize);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid var(--gBlue);
+  align-items: center;
+  height: 9vh;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 9vh;
+}
+
+.navigation--active {
+  transform: translateX(0);
+}
+
+.hamburger {
+  padding: 15px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+}
+
+/*poniżej usunięcie .navigation, ukryje to przesuwanie się czarnego elementu, który powinien mieć raczej zmiennianą widoczność, a nie położenie*/
+.hamburger,
+.navigation {
+  transition: transform 0.3s 0.1s ease-in-out;
+}
+
+.hamburger_box {
+  width: 25px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger_inner {
+  width: 100%;
+  height: 4px;
+  background-color: var(--dGBlue);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s 0.1s ease-in-out;
+}
+
+.hamburger_inner::before,
+.hamburger_inner::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--dGBlue);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s 0.2s ease-in-out;
+}
+
+.hamburger_inner:before {
+  top: -10px;
+}
+
+.hamburger_inner:after {
+  top: 10px;
+}
+
+.hamburger--active .hamburger_inner {
+  background-color: transparent;
+}
+
+.hamburger--active .hamburger_inner::before {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger--active .hamburger_inner::after {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+nav > h1 {
+  font-weight: 700;
+  border-bottom: 4px solid transparent;
+}
+
+.navigation > ul {
+  list-style: none;
+}
+
+.navigation > ul > li {
+  float: left;
+  margin: auto 20px;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid transparent;
+  box-sizing: border-box;
+}
+
+.navigation > ul > li:hover {
+  border-bottom: 4px solid var(--orange);
+  cursor: pointer;
+  animation-duration: 0.5s;
+  animation-name: lineBottom;
+  animation-fill-mode: forwards;
+}
+
+.navigation > ul > li > a {
+  text-decoration: none;
+  color: var(--dGBlue);
+}
+
+.basket {
+  position: absolute;
+  right: 20%;
+}
+
+.basket :hover {
+  cursor: pointer;
+  animation-duration: 0.5s;
+  animation-name: contrastUp;
+  animation-fill-mode: forwards;
+}
+
+.inBasket {
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 15px;
+  position: absolute;
+  left: 10px;
+  bottom: 15px;
+  display: none;
+}
+
+.user_pic {
+  position: absolute;
+  right: 12.5%;
+}
+
+.user_pic > img {
+  width: 50px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+.user_pic > img:hover {
+  cursor: pointer;
+  animation-name: userPicBorder;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  border-radius: 50%;
+}
+
+.cartBox {
+  display: none;
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  border-radius: 3%;
+  background-color: var(--white);
+  width: 480px;
+  -webkit-box-shadow: 0px 16px 24px 0px rgb(0, 0, 0.3);
+  -moz-box-shadow: 0px 16px 24px 0px rgb(0, 0, 0.3);
+  box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.3);
+}
+
+.cartBox > h3 {
+  font-size: 17px;
+  line-height: 4;
+  margin: auto;
+  padding-left: 7.5%;
+  border-bottom: 1px solid var(--gBlue);
+}
+
+.CartContentEmpty {
+  font-weight: 700;
+  color: var(--dGBlue);
+  text-align: center;
+  padding: 6vw 0;
+}
+
+.itemInBasket {
+  color: var(--dGBlue);
+  width: 85%;
+  margin: 30px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemImg {
+  border-radius: 5%;
+  width: 15%;
+}
+
+.itemName {
+  display: block;
+}
+
+.fullPrice {
+  color: var(--black);
+  font-weight: 700;
+  padding: 0 5px;
+}
+
+.productCash {
+  display: inline-block;
+  float: left;
+  padding: 0 3px;
+}
+
+.binButton {
+  display: block;
+}
+
+.binButton:hover {
+  cursor: pointer;
+  animation-duration: 0.5s;
+  animation-name: contrastLow;
+  animation-fill-mode: forwards;
+}
+
+.checkoutBtn {
+  display: none;
+  justify-content: center;
+  margin: 30px auto;
+  width: 85%;
+  line-height: 60px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  color: var(--white);
+  font-size: var(--fontSize);
+  background-color: var(--orange);
+}
+
+.checkoutBtn:hover {
+  cursor: pointer;
+  animation-duration: 0.5s;
+  animation-name: opacityChange;
+  animation-fill-mode: forwards;
+}
+
+.bigBox {
+  display: flex;
+  align-items: center;
+}
+
+.photo_area,
+.product_area {
+  width: 50%;
+  float: left;
+  margin-top: 5%;
+  justify-items: center;
+}
+
+.photo_big,
+.photo_few {
+  width: 80%;
+  margin: auto;
+}
+
+.photo_big:hover {
+  cursor: pointer;
+}
+
+.photo_big > img {
+  width: 100%;
+  border-radius: 3%;
+}
+
+.photo_few {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.photo_small {
+  width: 20%;
+  border-radius: 15%;
+  border: 2px solid transparent;
+  /* background-color: var(--white); */
+  /* przy cakground color white, można by wywalić border i zastąbić go wystającym divem całkiem z tyłu w kolorze pomarańczowym, który by był display:block po kliknięciu na fotę*/
+}
+
+.photo_small:hover {
+  cursor: pointer;
+}
+
+.borderActive {
+  border: 2px solid var(--orange);
+}
+
+.opacityActive {
+  filter: opacity(25%);
+}
+.opacityActive:hover {
+  filter: none;
+}
+
+.photo_small > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15%;
+}
+
+.photo_small > img:hover {
+  animation-duration: 0.5s;
+  animation-name: opacityPhoto;
+  animation-fill-mode: forwards;
+}
+
+.product_area > p,
+.product_area > h1,
+.price_area,
+.btns_area {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.company {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.product_area > h1 {
+  font-size: 50px;
+}
+
+.description {
+  color: var(--dGBlue);
+}
+
+.price_area,
+.btns_area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.price_area {
+  flex-wrap: wrap;
+  line-height: 0;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.discount {
+  font-weight: 700;
+  color: var(--orange);
+  background-color: var(--pOrange);
+  padding: 3px 5px;
+  border-radius: 5px;
+  margin: 0 3%;
+  line-height: 1;
+}
+
+.old_price {
+  color: var(--gBlue);
+  font-weight: 700;
+  text-decoration: line-through;
+  width: 100%;
+}
+
+.btns_area {
+  align-items: center;
+  height: 60px;
+  gap: 15px;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  align-items: center;
+  font-weight: 700;
+}
+
+.minus,
+.number,
+.plus {
+  line-height: 60px;
+  text-align: center;
+  width: 100%;
+  background-color: var(--blue);
+  border: none;
+  padding: 0;
+}
+
+.number {
+  min-width: 40px;
+}
+
+.minus {
+  border-radius: 10px 0 0 10px;
+}
+
+.plus {
+  border-radius: 0 10px 15px 0;
+}
+
+.minus:hover,
+.plus:hover {
+  cursor: pointer;
+}
+
+.minus:hover > img,
+.plus:hover > img,
+.add_btn:hover {
+  cursor: pointer;
+  animation-duration: 0.5s;
+  animation-name: opacityChange;
+  animation-fill-mode: forwards;
+}
+
+.add_btn {
+  flex-grow: 3;
+  line-height: 60px;
+  font-weight: 700;
+  border: none;
+  padding: 0;
+  border-radius: 10px;
+  align-items: center;
+  color: var(--white);
+  font-size: var(--fontSize);
+  background-color: var(--orange);
+  -webkit-box-shadow: 0px 10px 30px -10px var(--orange);
+  -moz-box-shadow: 0px 10px 30px -10px var(--orange);
+  box-shadow: 0px 10px 30px -10px var(--orange);
+}
+
+.add_btn > img {
+  margin: 0 15px;
+  filter: brightness(5);
+}
+/*       modal tu wjeżdza         */
+.modal_section {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: hsla(0, 0%, 0%, 75%);
+}
+
+.p_a_modal {
+  width: 100%;
+}
+
+.p_b_modal {
+  display: flex;
+  align-items: center;
+  width: 42%;
+}
+
+.p_b_modal:hover {
+  cursor: default;
+}
+
+.p_f_modal {
+  width: 30%;
+  margin-top: 2%;
+}
+
+.modal_close {
+  background-color: transparent;
+  border: none;
+  margin-left: 65%;
+  padding-bottom: 1%;
+}
+
+.close_span {
+  display: inline-block;
+  background-color: var(--white);
+  mask: url("../images/icon-close.svg");
+  mask-size: 20px;
+  width: 20px;
+  height: 20px;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+.close_span:hover {
+  cursor: pointer;
+  animation-name: whiteToOrange;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.arrow_btn {
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  background-color: var(--white);
+}
+
+.arrow_btn:hover {
+  background-color: var(--white);
+}
+
+.prev_btn {
+  left: 25.5%;
+}
+
+.next_btn {
+  right: 25.5%;
+}
+
+.arrow_span {
+  display: inline-block;
+  background-color: var(--black);
+  padding: 1.5vw;
+  mask-position: center !important;
+  mask-repeat: no-repeat !important;
+}
+
+.arrow_span:hover {
+  cursor: pointer;
+  animation-name: blackToOrange;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.prev_span {
+  mask: url("../images/icon-previous.svg");
+}
+
+.next_span {
+  mask: url("../images/icon-next.svg");
+}
+
+.visible {
+  display: block;
+}
